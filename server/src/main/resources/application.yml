@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  devtools:
+    livereload:
+      enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+  file: logs/demo.log
+
+---
+spring:
+  profiles: local
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
