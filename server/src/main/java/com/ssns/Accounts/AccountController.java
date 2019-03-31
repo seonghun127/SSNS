@@ -25,6 +25,10 @@ public class AccountController {
 
     private ModelMapper modelMapper;
 
+    /**
+     * test api to check the server in AWS
+     * @return String
+     */
     @GetMapping("/")
     public String test() {
         return "test page";
@@ -48,7 +52,7 @@ public class AccountController {
         }
 
         Account newAccount = accountService.createAccount(createDto);
-        return new ResponseEntity<>(modelMapper.map(newAccount, AccountDto.Respose.class), HttpStatus.CREATED);
+        return new ResponseEntity<>(modelMapper.map(newAccount, AccountDto.Response.class), HttpStatus.CREATED);
     }
 
     @ExceptionHandler(AccountDuplicatedException.class)
@@ -71,8 +75,8 @@ public class AccountController {
     @ResponseStatus(HttpStatus.OK)
     public PageImpl getAccounts(Pageable pageable){
         Page<Account> page = accountRepository.findAll(pageable);
-        List<AccountDto.Respose> list = page.getContent().stream()
-                                                .map(account -> modelMapper.map(account, AccountDto.Respose.class))
+        List<AccountDto.Response> list = page.getContent().stream()
+                                                .map(account -> modelMapper.map(account, AccountDto.Response.class))
                                                 .collect(Collectors.toList());
         return new PageImpl<>(list, pageable, page.getTotalElements());
     }
@@ -86,9 +90,9 @@ public class AccountController {
      */
     @GetMapping("/accounts/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AccountDto.Respose getAccount(@PathVariable Long id){
+    public AccountDto.Response getAccount(@PathVariable Long id){
         Account account = accountService.getAccount(id);
-        return modelMapper.map(account, AccountDto.Respose.class);
+        return modelMapper.map(account, AccountDto.Response.class);
     }
 
     @ExceptionHandler(AccountNotFoundException.class)
@@ -120,7 +124,7 @@ public class AccountController {
         }
 
         Account account = accountService.updateAccount(id, updateAccount);
-        return new ResponseEntity<>(modelMapper.map(account, AccountDto.Respose.class), HttpStatus.OK);
+        return new ResponseEntity<>(modelMapper.map(account, AccountDto.Response.class), HttpStatus.OK);
     }
 
     // ======================================================================================================== //

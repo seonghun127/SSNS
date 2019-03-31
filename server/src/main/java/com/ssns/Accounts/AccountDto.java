@@ -26,7 +26,7 @@ public class AccountDto {
     }
 
     @Data
-    public static class Respose {
+    public static class Response {
         private String email;
         private String name;
         private LocalDateTime createdDate;
