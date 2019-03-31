@@ -25,6 +25,11 @@ public class AccountController {
 
     private ModelMapper modelMapper;
 
+    @GetMapping("/")
+    public String test() {
+        return "test page";
+    }
+
     // ======================================================================================================== //
 
     /**
