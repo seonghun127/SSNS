@@ -43,7 +43,7 @@ public class AccountController {
      * @return ResponseEntity
      */
     @PostMapping("/accounts")
-    public ResponseEntity createAccount(@RequestBody @Valid AccountDto.Create createDto, BindingResult result){
+    public ResponseEntity createAccount(@RequestBody @Valid AccountDto.Create createAccount, BindingResult result){
         if(result.hasErrors()){
             ErrorResponse errorResponse = new ErrorResponse();
             errorResponse.setMessage("잘못된 요청입니다.");
@@ -51,7 +51,7 @@ public class AccountController {
             return new ResponseEntity<> (errorResponse, HttpStatus.BAD_REQUEST);
         }
 
-        Account newAccount = accountService.createAccount(createDto);
+        Account newAccount = accountService.createAccount(createAccount);
         return new ResponseEntity<>(modelMapper.map(newAccount, AccountDto.Response.class), HttpStatus.CREATED);
     }
 
