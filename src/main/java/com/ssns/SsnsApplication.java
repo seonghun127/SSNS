@@ -12,7 +12,7 @@ public class SsnsApplication {
 
     public static final String APPLICATION_LOCATIONS = "spring.config.location="
             + "classpath:application.yml,"
-            + "./config/real-application.yml";
+            + "/app/config/ssns/real-application.yml";
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(SsnsApplication.class)
