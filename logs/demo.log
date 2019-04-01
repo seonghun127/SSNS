@@ -780,3 +780,5 @@
 2019-04-01 19:28:39.494 DEBUG 67989 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
 2019-04-01 19:28:39.656  INFO 67989 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
 2019-04-01 19:28:39.660  INFO 67989 --- [restartedMain] com.ssns.SsnsApplication                 : Started SsnsApplication in 5.399 seconds (JVM running for 6.538)
+2019-04-01 22:18:16.458  WARN 67989 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h11m38s48ms).
+2019-04-01 22:33:43.033  WARN 67989 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=26s466ms), soft-evicting connections from pool.
