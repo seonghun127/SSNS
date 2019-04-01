@@ -3,6 +3,7 @@ package com.ssns.Accounts;
 import com.ssns.commons.ErrorResponse;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +26,23 @@ public class AccountController {
     private AccountRepository accountRepository;
 
     private ModelMapper modelMapper;
+
+    private Environment env;
+
+    // ======================================================================================================== //
+
+    /**
+     * test api to check nginx server executing with profile
+     * @return
+     */
+    @GetMapping("/profile")
+    public String getProfile () {
+        return Arrays.stream(env.getActiveProfiles())
+                .findFirst()
+                .orElse("");
+    }
+
+    // ======================================================================================================== //
 
     /**
      * test api to check the server in AWS
