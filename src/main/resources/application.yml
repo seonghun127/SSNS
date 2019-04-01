@@ -13,7 +13,6 @@ logging:
     org:
       springframework:
         web: DEBUG
-  file: logs/demo.log
 
 ---
 spring:
