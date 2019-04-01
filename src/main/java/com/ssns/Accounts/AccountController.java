@@ -61,6 +61,7 @@ public class AccountController {
      * @param result
      * @return ResponseEntity
      */
+    @CrossOrigin
     @PostMapping("/accounts")
     public ResponseEntity createAccount(@RequestBody @Valid AccountDto.Create createAccount, BindingResult result){
         if(result.hasErrors()){
@@ -90,6 +91,7 @@ public class AccountController {
      * @param pageable
      * @return
      */
+    @CrossOrigin
     @GetMapping("/accounts")
     @ResponseStatus(HttpStatus.OK)
     public PageImpl getAccounts(Pageable pageable){
@@ -107,6 +109,7 @@ public class AccountController {
      * @param id
      * @return
      */
+    @CrossOrigin
     @GetMapping("/accounts/{id}")
     @ResponseStatus(HttpStatus.OK)
     public AccountDto.Response getAccount(@PathVariable Long id){
@@ -132,6 +135,7 @@ public class AccountController {
      * @param result
      * @return
      */
+    @CrossOrigin
     @PutMapping("/accounts/{id}")
     public ResponseEntity updateAccount(@PathVariable Long id, @RequestBody @Valid AccountDto.Update updateAccount,
                                         BindingResult result) {
@@ -153,6 +157,7 @@ public class AccountController {
      * @param id
      * @return
      */
+    @CrossOrigin
     @DeleteMapping("/accounts/{id}")
     public ResponseEntity deleteAccount(@PathVariable Long id){
         accountService.deleteAccount(id);
